@@ -1,3 +1,6 @@
+## 0.0.4 Persistence
+  - Movile header redesign
+
 ## 0.0.3 Persistence
   - Map file persistence.
   - Token files persistence.

@@ -1,6 +1,6 @@
 {
   "name": "rpgmapper",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "This project was generated to represent diferent RPG battles",
   "scripts": {
     "ng": "ng",

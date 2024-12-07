@@ -21,3 +21,21 @@
   min-width: max-content;
 
 }
+
+
+@media screen and (max-width: 768px) {
+  .title {
+   display: none;
+  }
+
+  button {
+    margin-left: 1px;
+    padding: 8px 4px;
+  }
+
+  .mapSize {
+    margin-left: 8px;
+    width: 100%;
+    min-width: 100px;
+  }
+}
