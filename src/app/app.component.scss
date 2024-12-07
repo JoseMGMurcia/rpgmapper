@@ -1,0 +1,34 @@
+.loading {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+
+  img {
+    height: 80px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+  }
+}
+
+.header {
+  // always cover the full width and it is inmobile if you scroll to the right
+  width: 100%;
+  position: fixed;
+  background-color: black;
+  height: 30px;
+  z-index: 1000;
+}
+
+// Mobile phone configuration
+@media (max-width: 600px) {
+  router-outlet {
+    max-width: 100%;
+  }
+}

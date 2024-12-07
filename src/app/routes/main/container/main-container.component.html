@@ -1,0 +1,28 @@
+  <div class="main-container container" [style.min-width.px]="imageElementWidth">
+    <div class="tokens">
+      @for(token of tokens;let i = $index; track token){
+        <div class="token-wrap">
+          <img
+            [src]="token.imageUrl"
+            [alt]="token.label"
+            cdkDrag
+            class="dragable"
+            cdkDragBoundary=".grid"
+            [cdkDragFreeDragPosition]="token.position"
+            (dblclick)="popToken($event, token)"
+            (cdkDragEnded)="onDragEnd($event, token)"
+          />
+        </div>
+      }
+    </div>
+     <img
+        #mapElement
+        [src]="image"
+        [style.width.px]="imageElementWidth"
+        alt="map"
+        class="map"
+      />
+      <div class="grid-wrapper">
+        <div class="grid"></div>
+      </div>
+</div>

@@ -1,0 +1,23 @@
+@use 'assets/scss/custom-colors.scss' as colors;
+
+.header {
+  background-color: colors.$primary;
+  color: colors.$primary-font;
+  min-height: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+.mapSize {
+  margin-left: 32px;
+  min-width: 300px;
+  width: 15%;
+}
+
+.title {
+  margin: 0 32px;
+  min-width: max-content;
+
+}

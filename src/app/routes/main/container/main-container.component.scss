@@ -1,0 +1,62 @@
+@use 'assets/scss/custom-colors.scss' as colors;
+
+.main-container {
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
+  min-width: 100%;
+  background-color: colors.$background;
+  overflow: auto;
+
+  .tokens {
+    pointer-events: all;
+    margin-top: 50px;
+    height: 0;
+    width: 0;
+    z-index: 4;
+
+    .token-wrap {
+      height: 0;
+      width: 0;
+      z-index: 4;
+      position: relative;
+
+      .dragable{
+        z-index: 4;
+        cursor: move;
+        background-color: colors.$grey-dark;
+        width: var(--token-size);
+        height: var(--token-size);
+        border-radius: 50%;
+        border: 2px solid colors.$white;
+      }
+    }
+  }
+  .map {
+
+    pointer-events: none;
+    user-select: none;
+    position: static;
+    z-index: 1;
+    overflow: auto;
+    overflow-y: scroll;
+  }
+
+  .grid-wrapper {
+    pointer-events: none;
+    user-select: none;
+    height: 0;
+    .grid {
+      z-index: 2;
+      pointer-events: none;
+      user-select: none;
+      position: relative;
+      opacity: 0.5;
+      background-size: calc(var(--token-size) + 10px) calc(var(--token-size) + 10px);
+      background-image: linear-gradient(to right, colors.$border-grey 1px, transparent 1px),
+              linear-gradient(to bottom, colors.$border-grey 1px, transparent 1px);
+      height: calc(var(--token-size) * 300);
+      min-height: 100%;
+      margin-top: calc(var(--token-size) * (-150));
+    }
+  }
+}

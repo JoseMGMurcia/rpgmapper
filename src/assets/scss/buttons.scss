@@ -1,0 +1,24 @@
+@use './custom-colors.scss' as colors;
+
+button {
+  background-color: colors.$secondary;
+  border: none;
+  color: colors.$secondary-font;
+  font-weight: 600;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  min-width: max-content;
+
+  &:hover {
+    background-color: colors.$primary;
+    color: colors.$primary-font;
+    box-shadow: 0 4px 8px 0 rgba(247, 182, 6, 0.2);
+  }
+}

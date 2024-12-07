@@ -1,0 +1,7 @@
+{
+  "TITLE": "Mapas de Batalla",
+  "ACTIONS": {
+    "ADD_TOKEN": "Añadir Token",
+    "CHANGE_MAP": "Cambiar Mapa"
+  }
+}

@@ -1,1 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use 'assets/scss/custom-colors.scss' as colors;
+@use 'assets/scss/basic.scss';
+@use 'assets/scss/buttons.scss';
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+// Customize the entire app. Change :root to your selector if you want to scope the styles.
+:root {
+  @include mat.slider-overrides((
+    active-track-height: 4px,
+    handle-height: 10px,
+    handle-width: 10px,
+
+    handle-color: colors.$primary-font,
+    focus-handle-color: colors.$primary-font,
+    active-track-color: colors.$primary-font,
+    hover-handle-color: colors.$primary-font-50,
+
+    with-tick-marks-active-container-color: colors.$primary-font,
+    with-tick-marks-disabled-container-color: colors.$primary-font-50,
+    with-overlap-handle-outline-color: colors.$primary-font,
+  ));
+}
+
+html, body, :root {
+  background-color: colors.$background;
+  display: flex;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  flex: 1;
+  flex-direction: column;
+  height: 100dvh;
+  margin: 0;
+
+  //do not let childs to inherit background color
+  > * {
+    background-color: transparent;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+}
+
+
+
