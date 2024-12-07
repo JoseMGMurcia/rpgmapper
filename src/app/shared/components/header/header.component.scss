@@ -3,39 +3,94 @@
 .header {
   background-color: colors.$primary;
   color: colors.$primary-font;
-  min-height: 30px;
-}
+  min-height: 50px;
 
-.hidden {
-  display: none;
-}
-
-.mapSize {
-  margin-left: 32px;
-  min-width: 300px;
-  width: 15%;
-}
-
-.title {
-  margin: 0 32px;
-  min-width: max-content;
-
-}
-
-
-@media screen and (max-width: 768px) {
   .title {
-   display: none;
+    margin: 0 32px;
+    min-width: max-content;
   }
 
-  button {
-    margin-left: 1px;
-    padding: 8px 4px;
+  .hidden {
+    display: none;
   }
 
   .mapSize {
-    margin-left: 8px;
-    width: 100%;
-    min-width: 100px;
+    margin-left: 32px;
+    min-width: 300px;
+    width: 15%;
+  }
+
+  .menu-button {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    display: none;
+
+    .icon {
+      height: 25px;
+      width: 25px;
+    }
+  }
+
+  .version {
+    margin-bottom: 4px;
+    margin-left: auto;
+    margin-right: 8px;
+    align-self: flex-end;
+    font-size: small;
+    opacity: 0.7;
   }
 }
+
+.floating-left-menu {
+  float: left;
+  display: none;
+
+  .menu {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    background-color: colors.$primary;
+    color: colors.$primary-font;
+    border-radius: 8px;
+    width: 100px;
+    min-width: max-content;
+    height: 300px;
+    margin: 12px 0 0 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    float: left;
+    width: 100%;
+
+    .title {
+      margin: 0 12px;
+    }
+
+    .menu-button {
+      display: block;
+    }
+
+    button, .mapSize {
+      display: none;
+    }
+  }
+
+  .floating-left-menu {
+    display: block;
+    width: 400px;
+
+    .menu {
+      width: calc(100% - 32px);
+      min-width: max-content;
+    }
+  }
+}
+
+// @media screen and (max-width: 480px) {
+//   .floating-left-menu {
+//     width: 400px;
+//   }
+// }

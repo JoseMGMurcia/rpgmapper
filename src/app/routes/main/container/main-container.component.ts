@@ -1,12 +1,11 @@
 import { CdkDragEnd, DragDropModule } from '@angular/cdk/drag-drop';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, HostBinding, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { NUMBERS, STRING_EMPTY } from '@shared/constants';
+import { INITIAL_MAP_SIZE_PX, MIN_MAP_SIZE_PX, NUMBERS, STRING_EMPTY, TOKEN_SIZE } from '@shared/constants';
 import { MapToken } from '@shared/models';
 import { StatusService, FileService, StorageService, LoadingService } from '@shared/services';
 
-const INITIAL_MAP_SIZE_PX = NUMBERS.N_1300;
-const TOKEN_SIZE = NUMBERS.N_35;
+
 
 const imports = [
   DragDropModule,
@@ -26,6 +25,7 @@ export class MainContainerComponent implements OnInit {
   mapFile!: File;
   imageElementWidth = 1600;
   tokenWidth = TOKEN_SIZE;
+  isFirstToken = true;
 
   private readonly _destroyRef = inject(DestroyRef);
 
@@ -41,29 +41,15 @@ export class MainContainerComponent implements OnInit {
     .pipe(takeUntilDestroyed(this._destroyRef))
     .subscribe((image: File) => this.setFile(image));
 
-    let isFirstToken = true;
     this.statusService.token$
     .pipe(takeUntilDestroyed(this._destroyRef))
-    .subscribe((token) => {
-      this.tokens.push(token);
-      if (!isFirstToken) {
-        this.storage.setTokens(this.tokens);
-      } else {
-        this.tokens = this.storage.getTokens();
-        this.tokens.forEach((t) => {
-          if (!t.b64File) { return;}
-          const file = this.fileService.getFileFromB64(t.b64File);
-          t.imageUrl = URL.createObjectURL(file);
-        });
-      }
-      isFirstToken = false;
-      this.changeDetectorRef.markForCheck();
-    });
+    .subscribe((token) => this.handleToken(token));
 
     this.statusService.mapResizeCoeficient$
     .pipe(takeUntilDestroyed(this._destroyRef))
     .subscribe((value) => {
-      this.imageElementWidth = INITIAL_MAP_SIZE_PX * value;
+      const newWidth = INITIAL_MAP_SIZE_PX * value;
+      this.imageElementWidth = newWidth >= MIN_MAP_SIZE_PX ? newWidth : MIN_MAP_SIZE_PX;
       this.changeDetectorRef.markForCheck();
     });
 
@@ -83,6 +69,22 @@ export class MainContainerComponent implements OnInit {
     event.stopPropagation();
     this.tokens = this.tokens.filter((t) => t !== token);
     this.storage.setTokens(this.tokens);
+    this.changeDetectorRef.markForCheck();
+  }
+
+  private handleToken(token: MapToken): void {
+    this.tokens.push(token);
+    if (!this.isFirstToken) {
+      this.storage.setTokens(this.tokens);
+    } else {
+      this.tokens = this.storage.getTokens();
+      this.tokens.forEach((t) => {
+        if (!t.b64File) { return;}
+        const file = this.fileService.getFileFromB64(t.b64File);
+        t.imageUrl = URL.createObjectURL(file);
+      });
+    }
+    this.isFirstToken = false;
     this.changeDetectorRef.markForCheck();
   }
 

@@ -1,4 +1,7 @@
 <form class="header u-flex u-flex-center" [formGroup]="form">
+  <button class="u-margin-left menu-button" (click)="handleToggleMenu()">
+    <img class="icon" src="assets/images/menu.png" alt="menu"/>
+  </button>
   <h1 class="title">{{ "TITLE" | translate }}</h1>
   <button class="u-margin-left" (click)="handleAddToken()">{{ "ACTIONS.ADD_TOKEN" | translate }}</button>
   <button class="u-margin-left" (click)="handleChangeMap()">{{ "ACTIONS.CHANGE_MAP" | translate }}</button>
@@ -16,4 +19,20 @@
       formControlName="size" >
   </mat-slider>
 
+  <p class="version">{{ version}}</p>
+
 </form>
+
+@if(swShowMenu) {
+  <div class="floating-left-menu">
+    <form class="menu" [formGroup]="form">
+      <button class="u-margin-left" (click)="handleAddToken()">{{ "ACTIONS.ADD_TOKEN" | translate }}</button>
+      <button class="u-margin-left" (click)="handleChangeMap()">{{ "ACTIONS.CHANGE_MAP" | translate }}</button>
+      <mat-slider min="0.1" max="3" step="0.01" class="mapSize">
+        <input
+          matSliderThumb
+          formControlName="size" >
+      </mat-slider>
+    </form>
+  </div>
+}

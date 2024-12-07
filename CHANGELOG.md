@@ -1,5 +1,8 @@
 ## 0.0.4 Persistence
-  - Movile header redesign
+  - Movile header redesign.
+  - Dinamic menu.
+  - Version now shows in header.
+  - Minimum map size setted to 400px.
 
 ## 0.0.3 Persistence
   - Map file persistence.

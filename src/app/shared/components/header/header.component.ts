@@ -7,6 +7,7 @@ import { TokenSizeEnum } from '@shared/models';
 import { FileService, StatusService } from '@shared/services';
 import { StorageService } from '@shared/services/storage.service';
 import { validateImageFile } from '@shared/utils/file.utils';
+import pkg from '../../../../../package.json';
 
 const imports = [
   TranslateModule,
@@ -25,6 +26,8 @@ export class HeaderComponent implements AfterViewInit {
   acceptedFiles = Object.values(IMAGE_FILE_TYPES).join(COMMA);
   swChangingMap = false;
   form = this.getForm();
+  swShowMenu = false;
+  version = pkg.version;
 
   constructor(
     private readonly statusService: StatusService,
@@ -42,6 +45,7 @@ export class HeaderComponent implements AfterViewInit {
   handleAddToken() {
     this.swChangingMap = false;
     this.fileinput.nativeElement.click();
+    this.swShowMenu = false;
   }
 
   handleChangeMap() {
@@ -56,6 +60,11 @@ export class HeaderComponent implements AfterViewInit {
       return;
     }
     this.addToken(event);
+    this.swShowMenu = false;
+  }
+
+  handleToggleMenu() {
+    this.swShowMenu = !this.swShowMenu;
   }
 
 
