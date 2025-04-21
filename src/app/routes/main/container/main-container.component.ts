@@ -1,9 +1,10 @@
 import { CdkDragEnd, DragDropModule } from '@angular/cdk/drag-drop';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, HostBinding, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { INITIAL_MAP_SIZE_PX, MIN_MAP_SIZE_PX, NUMBERS, STRING_EMPTY, TOKEN_SIZE } from '@shared/constants';
+import { EventCategories, EVENTS, INITIAL_MAP_SIZE_PX, MIN_MAP_SIZE_PX, STRING_EMPTY, TOKEN_SIZE } from '@shared/constants';
 import { MapToken } from '@shared/models';
-import { StatusService, FileService, StorageService, LoadingService } from '@shared/services';
+import { StatusService, FileService, StorageService } from '@shared/services';
+import { AnalyticsService } from '@shared/services/analitic.service';
 
 
 
@@ -34,7 +35,8 @@ export class MainContainerComponent implements OnInit {
     private readonly changeDetectorRef: ChangeDetectorRef,
     private readonly storage: StorageService,
     private readonly fileService: FileService,
-  ) {}
+    private readonly analitycsService: AnalyticsService,
+  ) { }
 
   ngOnInit(): void {
     this.statusService.BackGrounImageFile$
@@ -54,6 +56,7 @@ export class MainContainerComponent implements OnInit {
     });
 
     this.setDefaultMap();
+    this.analitycsService.trackEvent(EVENTS.LOAD_MAIN_PAGE.NAME, EVENTS.LOAD_MAIN_PAGE.DETAILS, EventCategories.MAIN);
   }
 
   setDefaultMap(): void {

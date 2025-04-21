@@ -1,0 +1,26 @@
+@use 'assets/scss/custom-colors.scss' as colors;
+
+.footer-wrapper {
+  background-color: colors.$primary;
+  color: colors.$primary-font;
+  display: flex;
+  justify-content: space-between;
+  height: 12px;
+  z-index: 7;
+
+ * {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 8px;
+    padding: 1px;
+    font-size: xx-small;
+    opacity: 0.7;
+  }
+
+  .links {
+    .link {
+      cursor: pointer;
+    }
+  }
+}

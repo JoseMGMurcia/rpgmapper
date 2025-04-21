@@ -1,6 +1,7 @@
 {
   "name": "rpgmapper",
-  "version": "0.0.4",
+  "version": "0.0.5",
+  "author": "josemartinezgmurcia",
   "description": "This project was generated to represent diferent RPG battles",
   "scripts": {
     "ng": "ng",

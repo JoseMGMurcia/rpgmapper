@@ -3,5 +3,8 @@
     <img src="assets/images/loading.gif" alt="loading">
   </div>
 }
-<app-header class="header"/>
-<router-outlet class="application"/>
+@if(translationsLoaded){
+  <app-header class="header"/>
+  <router-outlet class="application"/>
+  <app-footer class="footer"/>
+}

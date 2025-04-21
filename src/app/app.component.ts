@@ -3,8 +3,8 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, inje
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterOutlet } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { FooterComponent } from '@shared/components/footer/footer.component';
 import { HeaderComponent } from '@shared/components/header/header.component';
-import { NUMBERS } from '@shared/constants';
 import { LoadingService } from '@shared/services';
 import { firstValueFrom } from 'rxjs';
 
@@ -12,6 +12,7 @@ const imports = [
   CommonModule,
   RouterOutlet,
   HeaderComponent,
+  FooterComponent,
 ];
 
 @Component({
@@ -60,5 +61,10 @@ export class AppComponent implements OnInit{
   private setInnerHeight() {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+    const modal = document.querySelector('.modal') as HTMLElement;
+    if (modal) {
+      modal.style.setProperty('--vh', `${vh}px`);
+    }
   }
 }

@@ -1,3 +1,6 @@
+## 0.0.5 Persistence
+  - Legal advice
+  
 ## 0.0.4 Persistence
   - Movile header redesign.
   - Dinamic menu.

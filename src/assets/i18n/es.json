@@ -3,5 +3,48 @@
   "ACTIONS": {
     "ADD_TOKEN": "Añadir Token",
     "CHANGE_MAP": "Cambiar Mapa"
+  },
+  "FOOTER": {
+    "TEXT": "© 2024 Mapas de Batalla. Todos los derechos reservados.",
+    "LEGAL_NOTICE": "Aviso Legal",
+    "PRIVACY_POLICY": "Política de Privacidad",
+    "COOKIES_POLICY": "Política de Cookies"
+  },
+  "TERMS": {
+    "TITLE": "Aviso Legal",
+    "CLOSE": "Cerrar",
+    "SECTION_1": {
+      "TITLE": "1. Información General",
+      "TEXT_1": "En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSI-CE), se informa de los siguientes datos del titular:",
+      "TEXT_2": "Titular: JoseMartinezGMurcia",
+      "TEXT_3": "Correo electrónico de contacto: josemartinezgmurcia@gmail.com",
+      "TEXT_4": "Este sitio web es de carácter personal y no tiene fines comerciales."
+    },
+    "SECTION_2": {
+      "TITLE": "2. Condiciones de Uso",
+      "TEXT_1": "El acceso y uso de este sitio web atribuye la condición de usuario e implica la aceptación de las condiciones de uso aquí establecidas. El titular se reserva el derecho de modificar estas condiciones en cualquier momento."
+    },
+    "SECTION_3": {
+      "TITLE": "3. Propiedad Intelectual e Industrial",
+      "TEXT_1": "Todos los contenidos del sitio web (textos, imágenes, gráficos, diseños, código fuente, logotipos, marcas, etc.) son propiedad del titular o de terceros que han autorizado su uso. Están protegidos por la normativa de propiedad intelectual e industrial. Queda prohibida la reproducción, distribución, comunicación pública o transformación de estos contenidos sin autorización expresa del titular."
+    },
+    "SECTION_4": {
+      "TITLE": "4. Responsabilidad",
+      "TEXT_1": "El titular no será responsable de:",
+      "TEXT_2": "Los daños o perjuicios derivados del acceso o uso del sitio web.",
+      "TEXT_3": "Los posibles errores de seguridad que puedan producirse debido a la utilización de versiones desactualizadas de navegadores o la presencia de virus en el dispositivo del usuario."
+    },
+    "SECTION_5": {
+      "TITLE": "5. Enlaces Externos",
+      "TEXT_1": "Este sitio web puede contener enlaces a páginas de terceros. El titular no asume ninguna responsabilidad sobre el contenido de estas páginas ni sobre el uso que los usuarios puedan hacer de ellas."
+    },
+    "SECTION_6": {
+      "TITLE": "6. Protección de Datos",
+      "TEXT_1": "El uso de este sitio web puede implicar el tratamiento de datos personales. Para más información, consulte nuestra [Política de Privacidad]."
+    },
+    "SECTION_7": {
+      "TITLE": "7. Legislación y Jurisdicción Aplicable",
+      "TEXT_1": "Este aviso legal se rige por la legislación española. Cualquier controversia derivada del uso de este sitio web será sometida a los tribunales de la ciudad de [Ciudad de tu elección]."
+    }
   }
 }

@@ -1,0 +1,42 @@
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 8;
+}
+
+.modal {
+  background-color: white;
+  border: rgb(227, 227, 227) 1px solid;
+  border-radius: 16px;
+  display: flex;
+  max-width: 60%;
+  min-width: 250px;
+  margin-top: calc(-50%);
+  margin-left: 20%;
+  position: relative;
+
+  z-index: 9;
+}
+
+@media screen and (max-width: 768px) {
+
+
+  //made the modal full screen on mobile
+  .modal {
+    margin-top: 60px;
+    margin-left: 4px;
+    max-width: calc(100% - 8px);
+    min-width: calc(100% - 8px);
+    position: absolute;
+    top: 0;
+  }
+
+
+
+
+
+}
