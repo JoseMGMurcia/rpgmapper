@@ -21,4 +21,21 @@ button {
     color: colors.$primary-font;
     box-shadow: 0 4px 8px 0 rgba(247, 182, 6, 0.2);
   }
+
+  &:disabled {
+    background-color: colors.$primary-50;
+    color: colors.$primary-font-50;
+    box-shadow: 0 4px 8px 0 rgba(247, 182, 6, 0.05);
+    cursor: not-allowed;
+  }
+
+  &.small {
+    font-size: 10px;
+    padding: 1px 4px;
+  }
+
+  &.medium {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
 }

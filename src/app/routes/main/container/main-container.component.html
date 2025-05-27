@@ -1,4 +1,8 @@
-  <div class="main-container container" [style.min-width.px]="imageElementWidth">
+  <div
+    class="main-container container"
+    [style.min-width.px]="imageElementWidth"
+    (contextmenu)="unselectAllTokens($event)"
+    (click)="unselectAllTokens($event)">
     <div class="tokens">
       @for(token of tokens;let i = $index; track token){
         <div class="token-wrap">
@@ -7,11 +11,67 @@
             [alt]="token.label"
             cdkDrag
             class="dragable"
-            cdkDragBoundary=".grid"
+            [ngClass]="{
+              'small-token': token.size === TokenSizeEnum.SMALL,
+              'large-token': token.size === TokenSizeEnum.LARGE,
+              'medium-token': token.size === TokenSizeEnum.MEDIUM,
+              'enormous-token': token.size === TokenSizeEnum.ENORMOUS,
+              'gargantuan-token': token.size === TokenSizeEnum.GARGANTUAN,
+              }"
+            cdkDragBoundary=".main-container"
             [cdkDragFreeDragPosition]="token.position"
-            (dblclick)="popToken($event, token)"
-            (cdkDragEnded)="onDragEnd($event, token)"
-          />
+            (contextmenu)="rightClickOnToken($event, token)"
+            (click)="leftClickOnToken($event, token)"
+            (cdkDragEnded)="onDragEnd($event, token)">
+            @if(token.active){
+              <div class="token-menu"
+                (click)="clickOTokennMenu($event)"
+                (dblclick)="clickOTokennMenu($event)"
+                cdkDrag
+                [cdkDragFreeDragPosition]="token.position">
+                  <p>{{ token.label }}</p>
+                  <p>
+                    {{ "TOKEN.SIZE" | translate }}:
+                    <button class="small" [disabled]="token.size === TokenSizeEnum.SMALL" (click)="changeTokenSize(token, false)">-</button>
+                    {{ ( "TOKEN.SIZE_OPTIONS." + token.size ) | translate  }}
+                    <button class="small" [disabled]="token.size === TokenSizeEnum.GARGANTUAN" (click)="changeTokenSize(token)">+</button>
+                  </p>
+                  <div class="attributes">
+                    @for(atribute of token.attributes;let i = $index; track atribute.id){
+                      <div class="atribute">
+                        <input
+                          type="text"
+                          class="atribute-label"
+                          [(ngModel)]="atribute.label"
+                          (change)="changeAtributeLabel()"
+                          placeholder="{{ 'TOKEN.ATTRIBUTE_LABEL' | translate }}">
+                        <button class="small" (click)="changeAtributeValue(atribute, -1)">-</button>
+                        <p class="value">{{ atribute.value }}</p>
+                        <button class="small" (click)="changeAtributeValue(atribute, +1)">+</button>
+                        <button class="delete-button small" (click)="deleteAtributte(token, atribute)">
+                          <img
+                            src="assets/images/2_axes.png"
+                            alt="delete"
+                            class="delete-icon"/>
+                        </button>
+
+                      </div>
+
+                    }
+                  </div>
+                   <button class="small" (click)="addAtribute(token)">
+                      {{ "ACTIONS.ADD_ATRIBUTE" | translate }}
+                    </button>
+                  <div class="menu-footer">
+                    <button class="medium" (click)="popToken($event, token)">
+                      {{ "ACTIONS.REMOVE_TOKEN" | translate }}
+                    </button>
+                  </div>
+
+
+              </div>
+            }
+
         </div>
       }
     </div>

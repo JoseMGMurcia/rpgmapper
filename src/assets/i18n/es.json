@@ -2,13 +2,27 @@
   "TITLE": "Mapas de Batalla",
   "ACTIONS": {
     "ADD_TOKEN": "Añadir Token",
-    "CHANGE_MAP": "Cambiar Mapa"
+    "ADD_ATRIBUTE": "Añadir Atributo",
+    "ADD_LARGE_TOKEN": "Añadir Token Grande",
+    "CHANGE_MAP": "Cambiar Mapa",
+    "REMOVE_TOKEN": "Eliminar"
   },
   "FOOTER": {
     "TEXT": "© 2024 Mapas de Batalla. Todos los derechos reservados.",
     "LEGAL_NOTICE": "Aviso Legal",
     "PRIVACY_POLICY": "Política de Privacidad",
     "COOKIES_POLICY": "Política de Cookies"
+  },
+  "TOKEN": {
+    "ATTRIBUTE_LABEL": "Atributo",
+    "SIZE": "Tamaño",
+    "SIZE_OPTIONS": {
+      "1": "Pequeño",
+      "2": "Mediano",
+      "3": "Grande",
+      "4": "Enorme",
+      "5": "Colosal"
+    }
   },
   "TERMS": {
     "TITLE": "Aviso Legal",

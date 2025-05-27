@@ -1,4 +1,4 @@
-export const GOOGLE_ANALYTICS_ID = '';
+export const GOOGLE_ANALYTICS_ID = 'G-DFKT6WH6C3';
 export const APP_NAME = 'Gwerfaur Battle Map';
 export const SCREENS = {
   MAIN: 'Main',
